@@ -2,6 +2,7 @@ import { Box, Grid, GridItem, Img } from "@chakra-ui/react";
 import React from "react";
 import prodocutbanner from "../helpers/productfeebanner.jpg";
 import ProductCard from "./productCard";
+import prodocutbanner2 from "../helpers/Camera-Offers.jpg";
 
 const Productfeed = ({ products }) => {
   return (
@@ -53,8 +54,33 @@ const Productfeed = ({ products }) => {
               />
             </GridItem>
           ))}
+
         {products
-          .slice(6)
+          .slice(6, 10)
+          .map(({ id, title, price, category, description, image }) => (
+            <GridItem>
+              <ProductCard
+                key={id}
+                id={id}
+                title={title}
+                price={price}
+                description={description}
+                image={image}
+                category={category}
+              />
+            </GridItem>
+          ))}
+        <GridItem colSpan={{ base: 1, md: 2, lg: 3, xl: 4 }}>
+          <Img
+            src={prodocutbanner2}
+            h={{ base: 300, sm: 300, md: 300 }}
+            mx={"auto"}
+            border={2}
+          />
+        </GridItem>
+
+        {products
+          .slice(10)
           .map(({ id, title, price, category, description, image }) => (
             <GridItem>
               <ProductCard
