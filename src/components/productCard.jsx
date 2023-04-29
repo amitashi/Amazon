@@ -16,12 +16,12 @@ const ProductCard = ({ id, title, price, category, description, image }) => {
       position={"relative"}
       display={"flex"}
       flexDir={"Column"}
-      m={4}
+      mx={{ base: 0, sm: 4 }}
+      my={4}
       bg={"white"}
       zIndex={30}
-      p={10}
-      // w={{ base: "100%", md: 300 }}
-      h={600}
+      p={{ base: 0, sm: 10 }}
+      h={{ base: 450, sm: 600 }}
       borderRadius={2}
     >
       <Text
@@ -44,12 +44,17 @@ const ProductCard = ({ id, title, price, category, description, image }) => {
       <Text as={"b"} my={3}>
         {title}
       </Text>
-      <Flex>
+      <Flex alignItems={"center"}>
         {Array(rating)
           .fill()
           .map((_, i) => (
             <AiFillStar key={i} w={5} fill="orange" />
           ))}
+        <Text fontSize={"sm"}>
+          {rating === 5
+            ? Number(rating - Math.random()).toFixed(2)
+            : Number(rating + Math.random()).toFixed(2)}
+        </Text>
       </Flex>
       <Text size={"xs"} my={2} noOfLines={2}>
         {description}
@@ -68,7 +73,7 @@ const ProductCard = ({ id, title, price, category, description, image }) => {
       )}
       <Button
         mt={"auto"}
-        mb={0}
+        mb={2}
         size={{ base: "xs", md: "sm" }}
         fontStyle={"bold"}
         bgGradient={"linear(to-b,yellow.200,yellow.400)"}

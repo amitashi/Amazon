@@ -16,8 +16,8 @@ const Banner = () => {
       <Box
         position={"absolute"}
         width={"100%"}
-        h={"70vh"}
-        bgGradient={"linear(to-tr, gray.50 5%,transparent)"}
+        h={"100%"}
+        bgGradient={"linear(to-tr, gray.100,transparent)"}
         zIndex={20}
         bottom={0}
       />

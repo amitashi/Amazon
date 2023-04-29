@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <>
       {/* // top logo bg="#232F3E"*/}
-      <Flex flexGrow={1} p={1} alignItems={"center"} bg="#131921">
+      <Flex flexGrow={1} p={1} alignItems={"center"} bg="#131921" w={"100%"}>
         <Flex
           mx={1}
           flexGrow={{ base: 1, sm: 0 }}
