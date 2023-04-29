@@ -3,6 +3,7 @@ import Header from "./components/header";
 import { Box, Spinner } from "@chakra-ui/react";
 import Banner from "./components/banner";
 import Productfeed from "./components/Productfeed";
+import dummydata from "./DummySore/DummyStoreData.json";
 
 const App = () => {
   const [products, setproducts] = useState([]);
@@ -20,7 +21,9 @@ const App = () => {
       // console.log(data);
       setisloading(false);
     } catch (err) {
-      console.log(err);
+      setproducts(dummydata);
+      setisloading(false);
+      // console.log(err);
     }
   };
 
