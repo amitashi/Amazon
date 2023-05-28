@@ -4,6 +4,7 @@ import amazonicon from "../helpers/logo-amazon.svg";
 import serachicon from "../helpers/magnifying-glass-solid.svg";
 import carticon from "../helpers/cart-shopping-solid.svg";
 import homeicon from "../helpers/bars-solid.svg";
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
@@ -17,15 +18,17 @@ const Header = () => {
           p={1}
           m={0}
         >
-          <Img
-            fill={"whiteAlpha.100"}
-            src={amazonicon}
-            alt="icon"
-            width={"5rem"}
-            height={"3rem"}
-            objectFit={"contain"}
-            cursor={"pointer"}
-          />
+          <Link to="/">
+            <Img
+              fill={"whiteAlpha.100"}
+              src={amazonicon}
+              alt="icon"
+              width={"5rem"}
+              height={"3rem"}
+              objectFit={"contain"}
+              cursor={"pointer"}
+            />
+          </Link>
         </Flex>
         {/* {search} */}
         <Flex
