@@ -4,8 +4,16 @@ import amazonicon from "../helpers/logo-amazon.svg";
 import serachicon from "../helpers/magnifying-glass-solid.svg";
 import carticon from "../helpers/cart-shopping-solid.svg";
 import homeicon from "../helpers/bars-solid.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Header = () => {
+  const naviate = useNavigate();
+  const cartItems = useSelector((state) => state.basket.items);
+
+  const naviagatetocheckout = () => {
+    naviate("/checkout");
+  };
+  console.log(cartItems);
   return (
     <>
       {/* // top logo bg="#232F3E"*/}
@@ -76,6 +84,7 @@ const Header = () => {
             <Text fontWeight={"bold"}>& Orders</Text>
           </Box>
           <Box
+            onClick={naviagatetocheckout}
             position="relative"
             display={"flex"}
             flexDir={"row"}
@@ -99,7 +108,7 @@ const Header = () => {
               color={"black"}
               size={"lg"}
             >
-              0
+              {cartItems.length}
             </Text>
             <Img src={carticon} h={6} w={6} />
             <Text

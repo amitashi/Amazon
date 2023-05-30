@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import { BsCurrencyRupee } from "react-icons/bs";
 import primelogo from "../helpers/primelogo.png";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../slices/basketSlice";
 const Max_Rating = 5;
 const Min_rating = 1;
 const ProductCard = ({ id, title, price, category, description, image }) => {
@@ -10,7 +12,21 @@ const ProductCard = ({ id, title, price, category, description, image }) => {
     Math.floor(Math.random() * (Max_Rating - Min_rating + 1) + Min_rating)
   );
   const [hasprime] = useState(Math.random() < 0.5);
+  const dispatch = useDispatch();
 
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      price,
+      category,
+      rating,
+      description,
+      image,
+      hasprime,
+    };
+    dispatch(addToBasket(product));
+  };
   return (
     <Box
       position={"relative"}
@@ -86,6 +102,7 @@ const ProductCard = ({ id, title, price, category, description, image }) => {
         }}
         boxShadow={"md"}
         _active={{ bgGradient: "linear(to-b,yellow.600,yellow.400)" }}
+        onClick={addItemToBasket}
       >
         Add to Cart
       </Button>
